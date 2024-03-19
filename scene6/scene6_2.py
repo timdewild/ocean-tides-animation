@@ -1,10 +1,12 @@
-import sys
+
 from matplotlib import colors, pyplot as plt
 import numpy as np
 
+import sys
+import os
 
-
-sys.path.append("/Users/timdewild/Library/CloudStorage/GoogleDrive-t.w.j.de.wild@rug.nl/Mijn Drive/Digital Demos/AnimationClass/src/")
+# we add the ~/matnimation directory to be able to import the 'src' module
+sys.path.append(os.path.abspath('')) 
 
 from matnimation.artist.static.static_circle import StaticCircle
 from matnimation.artist.animated.animated_polygon import AnimatedPolygon
@@ -380,72 +382,10 @@ ocean_moon_tides.set_styling_properties(
 
 #canvas.add_artist(ocean_moon_tides, 'lower right', in_legend = True)
 
-
-
-#--- Tidal forces moon ---#
-
-# tidal_forces_moon = StaticQuiver(
-#     name = "$\\vec{F}_\\mathrm{tid}^\\mathrm{(moon)}$",
-#     x_data = x_vectors,
-#     y_data = y_vectors,
-#     Fx_data = F_tidal_moon_x,
-#     Fy_data = F_tidal_moon_y,
-#     scale = 20,
-#     scale_units = 'xy', 
-#     color = 'k',
-#     width = 0.004
-# )
-
-# canvas.add_artist(tidal_forces_moon, in_legend = True)
-
-# tidal_forces_moon.set_styling_properties(
-#     zorder = 4
-# )
-
-# #--- Tidal forces sun ---#
-
-# tidal_forces_sun = StaticQuiver(
-#     name = "$\\vec{F}_\\mathrm{tid}^\\mathrm{(sun)}$",
-#     x_data = x_vectors,
-#     y_data = y_vectors,
-#     Fx_data = F_tidal_sun_x,
-#     Fy_data = F_tidal_sun_y,
-#     scale = 20,
-#     scale_units = 'xy', 
-#     color = 'darkorange',
-#     width = 0.004
-# )
-
-# canvas.add_artist(tidal_forces_sun, in_legend = True)
-
-# tidal_forces_sun.set_styling_properties(
-#     zorder = 4
-# )
-
-#--- Tidal forces total ---#
-
-# tidal_forces_total = AnimatedQuiver(
-#     name = "$\\vec{F}_\\mathrm{tid}^\\mathrm{(total)}$",
-#     x_data = x_vectors,
-#     y_data = y_vectors,
-#     Fx_data = 0.7 * data_tidal_force_total_x,
-#     Fy_data = 0.7 * data_tidal_force_total_y,
-#     scale = 25,
-#     scale_units = 'xy', 
-#     color = 'darkblue',
-#     width = 0.0015
-# )
-
-# canvas.add_artist(tidal_forces_total, axes_key = 'main', in_legend = True)
-
-# tidal_forces_total.set_styling_properties(
-#     zorder = 4
-# )
-
 canvas.construct_legend(axes_key = 'lower left', ncols = 3, loc = 'lower center', fontsize = 'small')
 
-canvas.save_canvas('stem_animation/scene6/scene6_2.jpg')
+canvas.save_canvas('scene6/scene6_2.jpg')
 
 animation_scene3 = Animation(canvas, interval = 30)
 
-animation_scene3.render('stem_animation/scene6/scene6_2.mp4')
+animation_scene3.render('scene6/scene6_2.mp4')

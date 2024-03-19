@@ -1,10 +1,12 @@
-import sys
+
 from matplotlib import colors, pyplot as plt
 import numpy as np
 
+import sys
+import os
 
-
-sys.path.append("/Users/timdewild/Library/CloudStorage/GoogleDrive-t.w.j.de.wild@rug.nl/Mijn Drive/Digital Demos/AnimationClass/src/")
+# we add the ~/matnimation directory to be able to import the 'src' module
+sys.path.append(os.path.abspath('')) 
 
 from matnimation.artist.static.static_circle import StaticCircle
 from matnimation.artist.animated.animated_polygon import AnimatedPolygon
@@ -244,7 +246,7 @@ moon.set_styling_properties(
 # canvas.add_artist(moon_orbit, in_legend = False)
 # canvas.add_artist(moon, in_legend = True)
 
-canvas.save_canvas('stem_animation/scene5/scene5_1.jpg')
+canvas.save_canvas('scene5/scene5_1.jpg')
 
 # animation_scene3 = Animation(canvas, interval = 15)
 

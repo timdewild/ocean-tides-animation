@@ -1,9 +1,12 @@
-import sys
-from matplotlib import colors, pyplot as plt
+from matplotlib import colors
+from matplotlib import pyplot as plt
 import numpy as np
 
-sys.path.append("/Users/timdewild/Library/CloudStorage/GoogleDrive-t.w.j.de.wild@rug.nl/Mijn Drive/Digital Demos/AnimationClass/src/")
+import sys
+import os
 
+# we add the ~/matnimation directory to be able to import the 'src' module
+sys.path.append(os.path.abspath('')) 
 
 from matnimation.animation.animation import Animation
 from matnimation.artist.animated.animated_circle import AnimatedCircle
@@ -458,9 +461,9 @@ canvas.construct_legend(axes_key = 'lower right', ncols = 2, loc = 'lower center
 
 #--- Animation ---#
 animation = Animation(canvas)
-animation.render('stem_animation/final_animation/final.mp4')
+animation.render('final_animation/final.mp4')
 
-canvas.save_canvas('stem_animation/final_animation/final.jpg')
+canvas.save_canvas('final_animation/final.jpg')
 
 # fig = canvas.get_figure()
 # fig.savefig('gridtest.jpg')

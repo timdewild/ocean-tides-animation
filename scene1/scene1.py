@@ -1,8 +1,11 @@
-import sys
 from matplotlib import colors
 import numpy as np
 
-sys.path.append("/Users/timdewild/Library/CloudStorage/GoogleDrive-t.w.j.de.wild@rug.nl/Mijn Drive/Digital Demos/AnimationClass/src/")
+import sys
+import os
+
+# we add the ~/matnimation directory to be able to import the 'src' module
+sys.path.append(os.path.abspath('')) 
 
 from matnimation.artist.static.static_circle import StaticCircle
 from matnimation.canvas.single_canvas import SingleCanvas
@@ -55,6 +58,6 @@ canvas.add_artist(ocean, in_legend=True)
 canvas.construct_legend(ncols = 2, loc = 'lower center', fontsize = 'small')
 
 
-canvas.save_canvas('stem_animation/scene1/scene1.jpg')
+canvas.save_canvas('scene1/scene1.jpg')
 
 

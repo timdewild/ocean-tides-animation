@@ -2,9 +2,11 @@ import sys
 from matplotlib import colors, pyplot as plt
 import numpy as np
 
+import sys
+import os
 
-
-sys.path.append("/Users/timdewild/Library/CloudStorage/GoogleDrive-t.w.j.de.wild@rug.nl/Mijn Drive/Digital Demos/AnimationClass/src/")
+# we add the ~/matnimation directory to be able to import the 'src' module
+sys.path.append(os.path.abspath('')) 
 
 from matnimation.artist.static.static_circle import StaticCircle
 from matnimation.artist.animated.animated_polygon import AnimatedPolygon
@@ -149,21 +151,6 @@ ocean.set_styling_properties(
 
 canvas.add_artist(ocean, 'main')
 
-
-# tidal_forces_moon = AnimatedQuiver(
-#     name = "$\\vec{F}_\\mathrm{tid}^\\mathrm{(moon)}$",
-#     x_data = x_vectors,
-#     y_data = y_vectors,
-#     Fx_data = data_tidal_force_moon_x,
-#     Fy_data = data_tidal_force_moon_y,
-#     scale = 20,
-#     scale_units = 'xy', 
-#     color = 'darkblue',
-#     width = 0.003 #0.005
-# )
-
-# #canvas.add_artist(tidal_forces_moon)
-
 #--- Moon and its orbit ---#
 
 moon_orbit = StaticCircle(
@@ -253,6 +240,4 @@ canvas.add_artist(tidal_profile_dot, 'tidal variation')
 
 animation_scene4 = Animation(canvas, interval = 30)
 
-animation_scene4.render('stem_animation/scene4/scene4.mp4')
-
-#canvas.save_canvas('stem_animation/scene4/scene4.jpg')
+animation_scene4.render('scene4/scene4.mp4')
